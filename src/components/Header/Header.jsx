@@ -54,7 +54,7 @@ const Header = () => {
           </span>
         </button>
         <button className={styles.ctaMobile}>
-          <span className={styles.icon}>
+          <span className={styles.mobileIcon}>
             <IconPen />
           </span>
         </button>

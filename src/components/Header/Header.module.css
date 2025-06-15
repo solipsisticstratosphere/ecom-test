@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--color-background); /* например: #0d0d0d */
+  background-color: var(--color-background);
   padding: 1rem 0rem;
   position: sticky;
   top: 0;
@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  margin: 0 auto; /* Центрування */
+  margin: 0 auto;
   transition: all 0.3s ease-in-out;
 }
 
@@ -78,14 +78,23 @@
 }
 .ctaMobile {
   display: none;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 46px;
+  height: 46px;
+  border: none;
   background: transparent;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+.mobileIcon {
+  background-color: var(--color-text);
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
 }
 .icon {
   background-color: var(--color-text);
@@ -128,7 +137,7 @@
   }
 
   .ctaMobile {
-    display: flex;
+    display: block;
   }
 
   .mobileControls {
@@ -141,8 +150,8 @@
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
-    width: 56px;
-    height: 56px;
+    width: 46px;
+    height: 46px;
     display: flex;
     align-items: center;
     justify-content: center;
