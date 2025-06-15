@@ -18,12 +18,15 @@
   min-width: 340px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .taggedBox {
-  padding: 64px 48px;
-  max-width: 620px;
+  padding-right: 93px;
+  padding-left: 40px;
+  padding-top: 1px;
+  padding-bottom: 55px;
+  width: 767px;
   position: relative;
 
   background-image: url("/src/assets/Frame.png");
@@ -33,9 +36,10 @@
 }
 
 .taggedBox h1 {
-  font-size: 48px;
+  font-family: var(--second-family);
   font-weight: 800;
-  line-height: 1.2;
+  font-size: 104px;
+  line-height: 96%;
   color: white;
 }
 
@@ -43,39 +47,92 @@
   color: #00ffa3;
 }
 
-.taggedBox p {
-  margin-top: 24px;
+.description {
   color: #ccc;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
+  max-width: 425px;
 }
 
 .tag {
   display: inline-block;
-  background-color: rgba(255, 255, 255, 0.05);
+  background: linear-gradient(
+    142deg,
+    rgba(10, 17, 33, 0.06) 0%,
+    rgba(22, 29, 50, 0) 100%
+  );
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 4px 10px;
   border-radius: 12px;
   font-size: 14px;
-  margin: 0 4px;
+
+  border-radius: 266px;
+}
+
+.tagFirst {
+  display: inline-block;
+  background: linear-gradient(
+    142deg,
+    rgba(10, 17, 33, 0.06) 0%,
+    rgba(22, 29, 50, 0) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 14px;
+
+  border-radius: 266px;
+  margin-bottom: 7px;
+}
+
+.tagText {
+  font-family: var(--fourth-family);
+  font-weight: 400;
+  font-size: 18px;
+  font-style: italic;
+}
+.tagSpan {
+  font-weight: 400;
+  font-size: 18px;
+}
+.descriptionBox {
+  margin-top: 55px;
+  display: flex;
+  flex-direction: row;
+  gap: 75px;
+  align-items: center;
 }
 
 .cta {
+  font-family: var(--second-family);
+  justify-content: space-around;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  margin-top: 32px;
-  padding: 16px 24px;
-  background-color: #00ffa3;
+  gap: 5px;
+  width: 280px;
+  height: 70px;
+  padding: 16px 20px;
+  background: linear-gradient(
+    49deg,
+    #15bcdf 0.01%,
+    #0ddc7a 61.5%,
+    #15bcdf 100%
+  );
   color: #000;
-  font-weight: bold;
+
   border-radius: 999px;
-  font-size: 14px;
+  font-weight: 700;
+  font-size: 16px;
   cursor: pointer;
   border: none;
 }
 
 .icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 100%;
+  background-color: black;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,8 +152,6 @@
 }
 
 .imagePlaceholder {
-  width: 100%;
-  height: 100%;
   background-color: #222;
   border-radius: 24px;
   min-height: 500px;
