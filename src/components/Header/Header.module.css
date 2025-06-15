@@ -1,0 +1,213 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-background); /* например: #0d0d0d */
+  padding: 1rem 0rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  transition: background-color 0.3s ease-in-out;
+}
+.scrolled {
+  backdrop-filter: blur(32px);
+  background: rgba(22, 24, 26, 0.7);
+  border-radius: 166px;
+  padding: 16px;
+  width: 1080px;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin: 0 auto; /* Центрування */
+  transition: all 0.3s ease-in-out;
+}
+
+.logoNavigation {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  width: 100%;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: 119px;
+}
+
+.nav {
+  display: flex;
+  gap: 46px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.ctaDesktop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  font-size: 16px;
+  width: 194px;
+  height: 56px;
+  border: transparent;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 166px;
+  color: var(--color-text);
+  font-weight: 700;
+  font-family: var(--second-family);
+  transition: all 0.2s ease-in-out;
+}
+
+.ctaDesktop:hover {
+  background-color: var(--color-text);
+  color: var(--color-primary);
+}
+.ctaMobile {
+  display: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.icon {
+  background-color: var(--color-text);
+  border-radius: 50%;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+}
+
+.icon svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--color-primary);
+}
+.closeButton {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.closeButton svg {
+  width: 24px;
+  height: 24px;
+}
+@media (max-width: 1024px) {
+  .nav {
+    display: none;
+  }
+
+  .ctaDesktop {
+    display: none;
+  }
+
+  .ctaMobile {
+    display: flex;
+  }
+
+  .mobileControls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .burger {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .burgerIcon {
+    width: 20px;
+    height: 2px;
+    background-color: white;
+    position: relative;
+  }
+
+  .burgerIcon::before,
+  .burgerIcon::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: white;
+    left: 0;
+  }
+
+  .burgerIcon::before {
+    top: -6px;
+  }
+
+  .burgerIcon::after {
+    top: 6px;
+  }
+
+  .drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80%;
+    height: 100vh;
+    background-color: #16181a;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+    z-index: 999;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .drawer a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: var(--second-family);
+  }
+}
+
+@media (min-width: 1025px) {
+  .mobileControls {
+    display: flex;
+    gap: 12px;
+  }
+
+  .ctaMobile {
+    display: none;
+  }
+  .burger {
+    display: none;
+  }
+}

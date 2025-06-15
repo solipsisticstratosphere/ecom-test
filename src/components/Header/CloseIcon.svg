@@ -1,0 +1,5 @@
+<!-- CloseIcon.svg -->
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M18 6L6 18" stroke="white" strokeWidth="2" strokeLinecap="round" />
+  <path d="M6 6L18 18" stroke="white" strokeWidth="2" strokeLinecap="round" />
+</svg>

@@ -1,0 +1,16 @@
+/* App.module.css */
+.appContainer {
+  padding-left: 50px;
+  padding-right: 50px;
+
+  /* адаптив для маленьких экранов */
+  max-width: 1440px;
+  margin: 0 auto;
+
+  /* Чтобы отступы адаптировались под экран, можно так */
+  padding-left: clamp(16px, 3vw, 50px);
+  padding-right: clamp(16px, 3vw, 50px);
+
+  /* Также удобно задавать плавные переходы */
+  transition: padding 0.2s ease-in-out;
+}
