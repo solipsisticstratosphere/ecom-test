@@ -132,12 +132,15 @@
   color: #000;
 
   border-radius: 999px;
+  background-size: 200% auto;
   font-weight: 700;
   font-size: clamp(14px, 1.5vw, 16px);
   cursor: pointer;
   border: none;
 }
-
+.cta:hover {
+  background-position: right center;
+}
 .icon {
   width: 42px;
   height: 42px;

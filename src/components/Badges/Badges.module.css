@@ -1,0 +1,105 @@
+/* Badges.module.css */
+
+.container {
+  width: 100%;
+  margin-top: 230px;
+  padding: 40px 0;
+  overflow: hidden;
+}
+
+.swiper {
+  padding: 0 20px;
+  overflow: visible; /* Важно для теней или hover-эффектов */
+}
+
+.slide {
+  width: auto !important; /* Для Swiper, чтобы слайды были разной ширины */
+  display: flex;
+  justify-content: center;
+}
+
+.badge {
+  position: relative;
+  display: flex;
+}
+
+.badgeInner {
+  width: 295px;
+  height: 295px;
+  border: 1px solid #333; /* Сделал тоньше, как на скриншоте */
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.badgeInner:hover {
+  border-color: #555;
+  transform: scale(1.02);
+}
+
+/* --- КЛЮЧЕВЫЕ ИЗМЕНЕНИЯ ЗДЕСЬ --- */
+
+.iconWrapper {
+  position: relative; /* Родитель для абсолютного позиционирования */
+  margin-bottom: 20px;
+  width: 100px; /* Размер контейнера для иконок */
+  height: 100px;
+  flex-shrink: 0; /* Чтобы flexbox не сжимал этот блок */
+}
+
+/* Стили для венка (фон) */
+.wreath {
+  position: absolute;
+  top: 50px;
+  left: 53px;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  color: white;
+  z-index: 1; /* Слой ниже */
+}
+
+/* Стили для основной иконки (передний план) */
+.icon {
+  position: absolute;
+  top: 48px;
+  left: 58px;
+  transform: translate(-50%, -50%);
+  width: 55%; /* Делаем ее меньше, чтобы она поместилась ВНУТРИ венка */
+  height: 55%;
+  color: white; /* У всех иконок будет белый цвет */
+  z-index: 2; /* Слой выше */
+}
+/* Для иконки короны можно задать особый цвет, если нужно */
+.icon[class*="Crown"] {
+  color: #9f7aea; /* Пример фиолетового цвета */
+}
+
+/* -------------------------------------- */
+
+.textContent {
+  text-align: center;
+  color: white;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+}
+@media (max-width: 1024px) {
+  .container {
+    margin-top: 128px;
+  }
+}
