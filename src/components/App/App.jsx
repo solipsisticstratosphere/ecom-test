@@ -4,6 +4,7 @@ import Hero from "../Hero/Hero";
 import ShowReel from "../ShowReel/ShowReel";
 import MissionSection from "../Mission/Mission";
 import Badges from "../Badges/Badges";
+import WorkWay from "../WorkWay/WorkWay";
 function App() {
   return (
     <div className={styles.appContainer}>
@@ -12,6 +13,7 @@ function App() {
       <ShowReel />
       <MissionSection />
       <Badges />
+      <WorkWay />
     </div>
   );
 }
