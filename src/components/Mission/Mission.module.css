@@ -1,0 +1,209 @@
+.missionSection {
+  margin-top: 230px;
+}
+
+.missionContainer {
+  display: flex;
+  flex-direction: column;
+}
+.missionButtonMobile {
+  border: 1px solid #fff;
+  border-radius: 999px;
+  padding: 8px 16px;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  align-self: flex-start;
+  margin-bottom: 24px;
+  display: none;
+}
+.missionButton {
+  border: 1px solid #fff;
+  border-radius: 999px;
+  padding: 8px 16px;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  align-self: flex-start;
+  margin-bottom: 58px;
+}
+
+.missionContent {
+  font-family: var(--second-family);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.missionText {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  width: 515px;
+  height: 337px;
+}
+.headlineSpan {
+  display: block;
+  margin-bottom: 0px;
+  text-align: end;
+}
+.missionText .headline {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 36px;
+}
+
+.missionText .subline {
+  font-size: 23px;
+
+  max-width: 700px;
+}
+.missionTextSpan {
+  color: #1c1c1c;
+}
+.missionAuthor {
+  justify-content: flex-end;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.photoWrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.authorPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.playIcon {
+  border: none;
+  position: absolute;
+  bottom: 60px;
+  right: -65px;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, #272b2e 0%, #111215 100%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 4px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.playIcon:hover {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3), 0 6px 30px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.missionAuthorName {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 130%;
+  margin-top: 24px;
+  margin-bottom: 0px;
+}
+.missionAuthorPosition {
+  margin-top: 12px;
+  margin-bottom: 0px;
+  font-size: 12px;
+  color: #fff;
+}
+
+@media (max-width: 1024px) {
+  .missionSection {
+    margin-top: clamp(80px, 12vw, 150px);
+    padding: 0 clamp(16px, 4vw, 32px);
+  }
+
+  .missionContainer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .missionContent {
+    flex-direction: column;
+    gap: clamp(22px, 6vw, 64px);
+  }
+
+  .missionButtonMobile {
+    display: block;
+    font-size: clamp(12px, 2.5vw, 14px);
+    padding: clamp(6px, 1.5vw, 8px) clamp(12px, 3vw, 16px);
+    margin-bottom: clamp(24px, 5vw, 32px);
+    align-self: flex-start;
+  }
+
+  .missionButton {
+    display: none;
+  }
+
+  .missionText {
+    width: 100%;
+    height: auto;
+    order: 1;
+    font-size: clamp(18px, 4vw, 28px);
+  }
+
+  .missionText .headline {
+    font-size: clamp(24px, 4.5vw, 24px);
+    margin-bottom: clamp(24px, 5vw, 36px);
+    text-align: left;
+  }
+
+  .headlineSpan {
+    text-align: left;
+    display: inline;
+  }
+
+  .missionText .subline {
+    font-size: clamp(16px, 3.5vw, 23px);
+    max-width: 100%;
+    line-height: 140%;
+  }
+
+  .missionAuthor {
+    order: 2;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+    position: relative;
+    margin-top: clamp(32px, 6vw, 48px);
+  }
+
+  .photoWrapper {
+    margin-left: 1px;
+  }
+
+  .playIcon {
+    left: 120px;
+    bottom: 50px;
+  }
+
+  .missionAuthorName {
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: clamp(16px, 3vw, 24px);
+  }
+
+  .missionAuthorPosition {
+    font-size: 10;
+    margin-top: clamp(8px, 2vw, 12px);
+  }
+}
