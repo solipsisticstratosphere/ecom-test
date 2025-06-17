@@ -15,9 +15,12 @@
   background: rgba(22, 24, 26, 0.7);
   border-radius: 166px;
   padding: 16px;
-  width: 1080px;
+
   height: 80px;
 
+  margin: 0 auto;
+  max-width: 1280px; /* чтобы не растягивался на всю ширину ультра-широких экранов */
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;

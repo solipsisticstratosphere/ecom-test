@@ -3,42 +3,48 @@
   justify-content: space-between;
   align-items: stretch;
   padding: 80px 0;
-  gap: 48px;
+  gap: 12px;
   flex-wrap: wrap;
+  height: 690px;
 }
 
 .left {
   flex: 1;
-  min-width: 340px;
+  min-width: 0;
   position: relative;
 }
 
 .right {
-  flex: 1;
-  min-width: 340px;
+  flex: 0 0 auto;
+  width: clamp(300px, 40vw, 500px);
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  align-items: stretch;
 }
 
 .taggedBox {
-  padding-right: 93px;
-  padding-left: 40px;
+  padding-left: clamp(20px, 4vw, 40px);
+  padding-right: clamp(20px, 6vw, 93px);
   padding-top: 1px;
-  padding-bottom: 55px;
-  width: 767px;
+  padding-bottom: 35px;
+  /* padding-bottom: 55px; */
+  min-width: 0;
   position: relative;
 
   background-image: url("/src/assets/Frame.png");
   background-size: 100% 100%;
+
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .taggedBox h1 {
+  margin: 55px 0;
   font-family: var(--second-family);
   font-weight: 800;
-  font-size: 104px;
+  font-size: clamp(40px, 7vw, 90px);
   line-height: 96%;
   color: white;
 }
@@ -49,7 +55,7 @@
 
 .description {
   color: #ccc;
-  font-size: 18px;
+  font-size: clamp(14px, 1.5vw, 18px);
   line-height: 1.6;
   max-width: 425px;
 }
@@ -88,19 +94,20 @@
 .tagText {
   font-family: var(--fourth-family);
   font-weight: 400;
-  font-size: 18px;
+  font-size: clamp(12px, 1.5vw, 18px);
   font-style: italic;
 }
 .tagSpan {
   font-weight: 400;
-  font-size: 18px;
+  font-size: clamp(12px, 1.5vw, 18px);
 }
 .descriptionBox {
   margin-top: 55px;
   display: flex;
   flex-direction: row;
-  gap: 75px;
+  gap: clamp(20px, 5vw, 75px);
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .cta {
@@ -109,20 +116,22 @@
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  width: 280px;
+  width: clamp(200px, 25vw, 280px);
   height: 70px;
   padding: 16px 20px;
   background: linear-gradient(
     49deg,
     #15bcdf 0.01%,
+
     #0ddc7a 61.5%,
+
     #15bcdf 100%
   );
   color: #000;
 
   border-radius: 999px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: clamp(14px, 1.5vw, 16px);
   cursor: pointer;
   border: none;
 }
@@ -144,15 +153,101 @@
   background-color: #000;
   border-radius: 50%;
 }
-
+.ctaBox {
+  gap: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.reviewsSpan {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 10px;
+  color: #fff;
+}
 .reviews {
-  margin-top: 16px;
+  text-align: center;
+  max-width: 203px;
+  font-weight: 400;
+  margin: 0;
   font-size: 12px;
-  color: #777;
+  color: var(--color-secondary);
 }
 
 .imagePlaceholder {
-  background-color: #222;
   border-radius: 24px;
-  min-height: 500px;
+  height: 688px;
+}
+.imagePlaceholder img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+    gap: 32px;
+    padding: 40px 0;
+  }
+
+  .left {
+    order: 1;
+  }
+
+  .right {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .taggedBox {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: clamp(16px, 6vw, 40px);
+    padding-right: clamp(16px, 6vw, 40px);
+    text-align: center;
+  }
+
+  .taggedBox h1 {
+    font-weight: 800;
+    font-size: clamp(40px, 6vw, 50px);
+    line-height: 1.1;
+    margin-top: 60px;
+    text-align: start;
+  }
+
+  .description {
+    font-size: clamp(10px, 4vw, 20px);
+    text-align: start;
+    margin: 0 auto;
+  }
+  .tag,
+  .tagFirst {
+    padding: clamp(2px, 1vw, 6px);
+  }
+  .tagText,
+  .tagSpan {
+    font-size: clamp(13px, 3.5vw, 15px);
+    text-align: center;
+  }
+
+  .descriptionBox {
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .cta {
+    width: clamp(220px, 70vw, 320px);
+    height: clamp(56px, 12vw, 70px);
+    font-size: clamp(16px, 4vw, 18px);
+    margin: 0 auto;
+  }
 }

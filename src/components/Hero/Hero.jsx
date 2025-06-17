@@ -8,7 +8,8 @@ const Hero = () => {
       <div className={styles.left}>
         <div className={styles.taggedBox}>
           <h1>
-            BUILDING <span>DATA-DRIVEN</span> E-COMMERCE <br /> ON SHOPIFY
+            BUILDING <span>DATA-DRIVEN</span>
+            <br /> E-COMMERCE <br /> ON SHOPIFY
           </h1>
           <div className={styles.descriptionBox}>
             <p className={styles.description}>
@@ -18,7 +19,7 @@ const Hero = () => {
                 <span className={styles.tagText}>performance </span>{" "}
                 <span className={styles.tagSpan}> marketing</span>
               </span>{" "}
-              ,
+              ,{" "}
               <span className={styles.tag}>
                 <span className={styles.tagText}>user </span>{" "}
                 <span className={styles.tagSpan}>experience</span>
@@ -37,8 +38,8 @@ const Hero = () => {
                 </span>
               </button>
               <p className={styles.reviews}>
-                <strong>146+ REVIEWS.</strong> ALL CHANCES ARE YOU’LL BE
-                IMPRESSED TOO.
+                <span className={styles.reviewsSpan}>146+ REVIEWS.</span> ALL
+                CHANCES ARE YOU’LL BE IMPRESSED TOO.
               </p>
             </div>
           </div>
