@@ -44,7 +44,7 @@
 
 .nav {
   display: flex;
-  gap: 46px;
+  gap: clamp(10px, 2vw, 46px);
 }
 
 .nav a {
@@ -189,18 +189,21 @@
   .drawer {
     position: fixed;
     top: 0;
-    right: 0;
-    width: 80%;
+    left: 0;
+    width: 100vw;
     height: 100vh;
-    background-color: #16181a;
+    background-color: rgba(22, 24, 26, 0.9);
     display: flex;
     flex-direction: column;
     padding: 2rem;
     gap: 2rem;
-    z-index: 999;
+    z-index: 9999;
+    backdrop-filter: blur(28px);
     transition: transform 0.3s ease-in-out;
   }
-
+  .noscroll {
+    overflow: hidden;
+  }
   .drawer a {
     color: white;
     font-size: 18px;

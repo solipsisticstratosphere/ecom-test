@@ -6,7 +6,7 @@ import MissionSection from "../Mission/Mission";
 import Badges from "../Badges/Badges";
 import WorkWay from "../WorkWay/WorkWay";
 import Steps from "../Steps/Steps";
-
+import Discuss from "../Discuss/Discuss";
 function App() {
   return (
     <div className={styles.appContainer}>
@@ -17,6 +17,7 @@ function App() {
       <Badges />
       <WorkWay />
       <Steps />
+      <Discuss />
     </div>
   );
 }

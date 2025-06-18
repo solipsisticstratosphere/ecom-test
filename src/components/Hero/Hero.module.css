@@ -6,7 +6,7 @@
   padding-bottom: 20px;
   gap: 12px;
   flex-wrap: wrap;
-  min-height: 690px; /* или auto */
+  min-height: 690px;
   height: auto;
 }
 
@@ -232,6 +232,7 @@
     font-size: clamp(10px, 4vw, 20px);
     text-align: start;
     margin: 0 auto;
+    max-width: 100%;
   }
   .tag,
   .tagFirst {
@@ -257,5 +258,13 @@
     height: clamp(56px, 12vw, 70px);
     font-size: clamp(16px, 4vw, 18px);
     margin: 0 auto;
+  }
+}
+@media (max-width: 768px) {
+  .description {
+    max-width: 425px;
+  }
+  .descriptionBox {
+    align-items: flex-start;
   }
 }

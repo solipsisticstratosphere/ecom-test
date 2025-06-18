@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import ReactDOM from "react-dom";
 import styles from "./Header.module.css";
 import Logo from "./Logo.svg?react";
 import IconPen from "./Pen.svg?react";
@@ -27,11 +28,42 @@ const Header = () => {
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
     }
+    if (drawerOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
 
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [drawerOpen]);
 
   const toggleDrawer = () => setDrawerOpen((prev) => !prev);
+
+  const drawer = (
+    <div ref={drawerRef} className={styles.drawer}>
+      <button
+        className={styles.closeButton}
+        onClick={() => setDrawerOpen(false)}
+      >
+        <CloseIcon />
+      </button>
+      <a href="#" onClick={() => setDrawerOpen(false)}>
+        Services
+      </a>
+      <a href="#" onClick={() => setDrawerOpen(false)}>
+        Our Approach
+      </a>
+      <a href="#" onClick={() => setDrawerOpen(false)}>
+        Projects
+      </a>
+      <a href="#" onClick={() => setDrawerOpen(false)}>
+        About Us
+      </a>
+      <a href="#" onClick={() => setDrawerOpen(false)}>
+        Blog
+      </a>
+    </div>
+  );
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.logoNavigation}>
@@ -63,31 +95,7 @@ const Header = () => {
         </button>
       </div>
 
-      {drawerOpen && (
-        <div ref={drawerRef} className={styles.drawer}>
-          <button
-            className={styles.closeButton}
-            onClick={() => setDrawerOpen(false)}
-          >
-            <CloseIcon />
-          </button>
-          <a href="#" onClick={() => setDrawerOpen(false)}>
-            Services
-          </a>
-          <a href="#" onClick={() => setDrawerOpen(false)}>
-            Our Approach
-          </a>
-          <a href="#" onClick={() => setDrawerOpen(false)}>
-            Projects
-          </a>
-          <a href="#" onClick={() => setDrawerOpen(false)}>
-            About Us
-          </a>
-          <a href="#" onClick={() => setDrawerOpen(false)}>
-            Blog
-          </a>
-        </div>
-      )}
+      {drawerOpen && ReactDOM.createPortal(drawer, document.body)}
     </header>
   );
 };
