@@ -243,7 +243,7 @@ textarea::placeholder {
   }
   .wrapper {
     padding: 40px 16px;
-
+    border-radius: 35px;
     background-position: center;
   }
   .title {
