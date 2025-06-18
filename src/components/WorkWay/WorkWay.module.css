@@ -160,7 +160,9 @@
   .headline {
     align-items: center;
   }
-
+  .topRow {
+    transform: translateX(-20%);
+  }
   .topRow,
   .bottomRow {
     display: flex;

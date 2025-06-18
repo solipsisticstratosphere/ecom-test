@@ -1,3 +1,3 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="334" height="151" fill="none">
-  <path stroke="#161616" stroke-dasharray="6 4" stroke-width="2" d="M333 151c0-39.782-17.489-77.936-48.62-106.066C253.249 16.804 211.026 1 167 1 122.974 1 80.751 16.803 49.62 44.934 18.49 73.064 1 111.218 1 151" opacity=".2"/>
+  <path stroke="currentColor" stroke-dasharray="6 4" stroke-width="2" d="M333 151c0-39.782-17.489-77.936-48.62-106.066C253.249 16.804 211.026 1 167 1 122.974 1 80.751 16.803 49.62 44.934 18.49 73.064 1 111.218 1 151" opacity=".2"/>
 </svg>
