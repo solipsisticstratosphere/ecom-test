@@ -5,6 +5,8 @@ import ShowReel from "../ShowReel/ShowReel";
 import MissionSection from "../Mission/Mission";
 import Badges from "../Badges/Badges";
 import WorkWay from "../WorkWay/WorkWay";
+import Steps from "../Steps/Steps";
+
 function App() {
   return (
     <div className={styles.appContainer}>
@@ -14,6 +16,7 @@ function App() {
       <MissionSection />
       <Badges />
       <WorkWay />
+      <Steps />
     </div>
   );
 }
