@@ -11,18 +11,21 @@ import Upwork from "../../assets/icons/Upwork.svg?react";
 import Location from "../../assets/icons/Location.svg?react";
 import bookCallImg from "../../assets/book_call.png";
 
+// модальне вікно для бронювання дзвінка
 const ModalBookCall = ({ isOpen, onClose }) => {
   const modalRef = useRef(null);
   const [selectedIndustry, setSelectedIndustry] = useState("");
   const [email, setEmail] = useState("");
 
   useEffect(() => {
+    // закриття по кліку поза модалкою
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         onClose();
       }
     };
 
+    // закриття по Escape
     const handleEscapeKey = (event) => {
       if (event.key === "Escape") {
         onClose();
@@ -44,10 +47,12 @@ const ModalBookCall = ({ isOpen, onClose }) => {
     };
   }, [isOpen, onClose]);
 
+  // вибір індустрії
   const handleIndustrySelect = (industry) => {
     setSelectedIndustry(industry);
   };
 
+  // відправка форми
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = {
@@ -61,6 +66,7 @@ const ModalBookCall = ({ isOpen, onClose }) => {
     onClose();
   };
 
+  // клік по демо-дзвінку
   const handleDemoCall = () => {
     console.log("Demo call requested:", {
       action: "book_demo_call",
@@ -68,6 +74,7 @@ const ModalBookCall = ({ isOpen, onClose }) => {
     });
   };
 
+  // список індустрій
   const industries = [
     "Clothing",
     "Cosmetics",
@@ -79,6 +86,7 @@ const ModalBookCall = ({ isOpen, onClose }) => {
   return ReactDOM.createPortal(
     <AnimatePresence>
       {isOpen && (
+        // оверлей модалки
         <motion.div
           className={styles.overlay}
           initial={{ opacity: 0 }}
@@ -86,6 +94,7 @@ const ModalBookCall = ({ isOpen, onClose }) => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
         >
+          {/* сама модалка */}
           <motion.div
             ref={modalRef}
             className={styles.modal}
@@ -94,11 +103,13 @@ const ModalBookCall = ({ isOpen, onClose }) => {
             exit={{ y: 50, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
+            {/* кнопка закриття */}
             <button className={styles.closeButton} onClick={onClose}>
               <CloseIcon />
             </button>
 
             <div className={styles.content}>
+              {/* ліва частина: форма */}
               <div className={styles.leftSection}>
                 <h2 className={styles.title}>
                   Ready to discuss
@@ -107,6 +118,7 @@ const ModalBookCall = ({ isOpen, onClose }) => {
                 </h2>
 
                 <form className={styles.form} onSubmit={handleSubmit}>
+                  {/* вибір індустрії */}
                   <div className={styles.industrySection}>
                     <h3 className={styles.sectionTitle}>
                       Choose your industry
@@ -127,6 +139,7 @@ const ModalBookCall = ({ isOpen, onClose }) => {
                     </div>
                   </div>
 
+                  {/* поле email */}
                   <div className={styles.contactSection}>
                     <h3 className={styles.sectionTitle}>Contact me back at</h3>
                     <input
@@ -139,6 +152,7 @@ const ModalBookCall = ({ isOpen, onClose }) => {
                     />
                   </div>
 
+                  {/* кнопки дій */}
                   <div className={styles.actionSection}>
                     <button type="submit" className={styles.submitBtn}>
                       SEND A MESSAGE
@@ -147,6 +161,7 @@ const ModalBookCall = ({ isOpen, onClose }) => {
                       </span>
                     </button>
 
+                    {/* або демо-дзвінок */}
                     <div className={styles.orSection}>
                       <button
                         type="button"
@@ -170,6 +185,7 @@ const ModalBookCall = ({ isOpen, onClose }) => {
                   </div>
                 </form>
 
+                {/* політика конфіденційності */}
                 <div className={styles.privacySection}>
                   <p className={styles.privacy}>
                     By sending this form I confirm that I have read and accept
@@ -178,6 +194,7 @@ const ModalBookCall = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
+              {/* права частина: відгук клієнта */}
               <div className={styles.testimonialBox}>
                 <div className={styles.folderTab}>
                   <Up />

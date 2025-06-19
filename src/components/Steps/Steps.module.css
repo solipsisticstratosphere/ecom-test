@@ -1,22 +1,22 @@
 .stepsSection {
   position: relative;
+  width: 99vw;
   background-color: #f7f8fa;
   padding-top: clamp(60px, 10vw, 120px);
   padding-bottom: clamp(60px, 10vw, 86px);
   margin-left: calc(-1 * (100vw - 100%) / 2);
   margin-right: calc(-1 * (100vw - 100%) / 2);
-  width: 99vw;
   overflow: hidden;
 }
 
 .container {
-  flex-shrink: 0;
   display: flex;
+  justify-content: center;
+  position: relative;
   max-width: 100%;
   margin: 0 auto;
   padding: 0 20px;
-  position: relative;
-  justify-content: center;
+  flex-shrink: 0;
 }
 
 .desktopContainer {
@@ -29,10 +29,10 @@
 
 .column {
   position: relative;
-  width: 328px;
-  height: 670px;
   display: flex;
   align-self: flex-start;
+  width: 328px;
+  height: 670px;
   background-image: url("/src/assets/frame2.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -71,12 +71,12 @@
 }
 
 .columnContent {
-  width: 100%;
-  padding: 10px 30px 30px 25px;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
+  padding: 10px 30px 30px 25px;
+  box-sizing: border-box;
 }
 
 .header {
@@ -112,8 +112,8 @@
 }
 
 .ellipse {
-  color: #888;
   position: absolute;
+  color: #888;
   pointer-events: none;
   z-index: 0;
 }
@@ -123,19 +123,16 @@
   left: 51%;
   transform: translateX(-50%);
 }
-
 .ellipse2 {
   top: 40px;
   left: 51%;
   transform: translateX(-50%);
 }
-
 .ellipse3 {
   top: 40px;
   left: 51%;
   transform: translateX(-50%);
 }
-
 .ellipse4 {
   top: 45px;
   left: 51%;
@@ -155,17 +152,13 @@
 }
 
 .icon {
-  color: #888;
   width: 20px;
   height: 20px;
+  color: #888;
   fill: #888;
 }
 
-.iconTrending {
-  width: 30px;
-  height: 30px;
-}
-
+.iconTrending,
 .iconSearch {
   width: 30px;
   height: 30px;
@@ -216,6 +209,36 @@
   color: #161616;
 }
 
+.glow {
+  position: absolute;
+  top: 50px;
+  left: 51%;
+  transform: translateX(-50%);
+  width: 336px;
+  height: 151px;
+  background-image: url("/src/assets/Ellipse_Glow.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.mobileGlow2 {
+  top: 41px;
+  left: 51%;
+  transform: translateX(-50%);
+}
+.mobileGlow3 {
+  top: 41px;
+  left: 51%;
+  transform: translateX(-50%);
+}
+.mobileGlow4 {
+  top: 45px;
+  left: 51%;
+  transform: translateX(-50%);
+}
+
 @media (max-width: 1025px) {
   .stepsSection {
     background-color: var(--color-background);
@@ -235,9 +258,9 @@
     width: 100%;
     padding-bottom: 60px;
     padding-left: 20px;
-    overflow: visible !important;
     padding-right: 35px;
     box-sizing: border-box;
+    overflow: visible !important;
   }
 
   .swiperSlideMobile {
@@ -246,22 +269,22 @@
   }
 
   .mobileColumn {
+    position: relative;
+    display: flex;
+    width: 335px;
+    height: 650px;
+    margin: 0;
+    overflow: hidden;
+    box-sizing: border-box;
     background-image: url("/src/assets/whiteFrame.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
-    position: relative;
-    width: 335px;
-    height: 650px;
-    display: flex;
-    overflow: hidden;
-    margin: 0;
-    box-sizing: border-box;
   }
 
   .mobileColumn .columnContent {
-    padding: 20px 25px 25px 20px;
     width: 100%;
+    padding: 20px 25px 25px 20px;
     box-sizing: border-box;
   }
 
@@ -279,9 +302,9 @@
   }
 
   .mobileColumn .ellipse {
+    position: absolute;
     color: #09e1a1;
     fill: linear-gradient(180deg, #09e1a1 0%, #fff 70.13%);
-    position: absolute;
     pointer-events: none;
     z-index: 0;
   }
@@ -310,11 +333,11 @@
   }
 
   .swiper :global(.swiper-pagination) {
+    position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     width: auto;
-    position: absolute;
     z-index: 10;
   }
 

@@ -6,6 +6,7 @@ import Upwork from "../../assets/icons/Upwork.svg?react";
 import Star from "../../assets/icons/Star.svg?react";
 import Location from "../../assets/icons/Location.svg?react";
 
+// головний компонент обговорення
 const Discuss = () => {
   const [touched, setTouched] = useState({});
   const [formData, setFormData] = useState({
@@ -17,14 +18,17 @@ const Discuss = () => {
 
   const [submitted, setSubmitted] = useState(false);
 
+  // зміна полів форми
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // фіксація торкання поля
   const handleBlur = (e) => {
     setTouched({ ...touched, [e.target.name]: true });
   };
 
+  // відправка форми
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
@@ -38,6 +42,7 @@ const Discuss = () => {
     }
   };
 
+  // перевірка помилок
   const getError = (field) => {
     if (!submitted && !touched[field]) return false;
     if (field === "email") return !formData.email.includes("@");
@@ -48,6 +53,7 @@ const Discuss = () => {
     <div className={styles.discussSection}>
       <div className={styles.wrapper}>
         <div className={styles.container}>
+          {/* форма для обговорення проекту */}
           <form className={styles.form} onSubmit={handleSubmit} noValidate>
             <h2 className={styles.title}>
               Ready to discuss your project with us?
@@ -104,7 +110,7 @@ const Discuss = () => {
               </button>
             </div>
           </form>
-
+          {/* блок з відгуком клієнта */}
           <div className={styles.testimonialBox}>
             <div className={styles.folderTab}>
               <Up />

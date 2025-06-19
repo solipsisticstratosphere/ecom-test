@@ -6,6 +6,8 @@ import TelegramIcon from "/src/assets/icons/Telegram.svg?react";
 import LinkedinIcon from "/src/assets/icons/Linkedin.svg?react";
 import CopyIcon from "/src/assets/icons/Copy.svg?react";
 import ModalBookCall from "../ModalBookCall/ModalBookCall";
+
+// компонент футера
 const Footer = () => {
   const circleRef = useRef(null);
   const wrapperRef = useRef(null);
@@ -14,15 +16,19 @@ const Footer = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
+  // відкриття модального вікна
   const openModal = () => setModalOpen(true);
+  // закриття модального вікна
   const closeModal = () => setModalOpen(false);
 
+  // копіювання email
   const handleCopy = () => {
     navigator.clipboard.writeText("team@unknown.marketing");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
+  // анімація кола при русі миші
   useEffect(() => {
     let animationFrameId;
     let targetCoords = { x: 0, y: 0 };
@@ -67,6 +73,7 @@ const Footer = () => {
 
   return (
     <footer className={styles.wrapper} ref={wrapperRef}>
+      {/* ліва частина футера */}
       <div className={styles.left}>
         <h1 className={styles.title}>
           LET'S
@@ -77,6 +84,7 @@ const Footer = () => {
           <br />
           PROJECT
         </h1>
+        {/* кнопка "Let's Discuss" */}
         <button
           className={styles.discussCircle}
           style={{
@@ -90,9 +98,7 @@ const Footer = () => {
           ref={circleRef}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          onClick={() => {
-            openModal();
-          }}
+          onClick={openModal}
           aria-label="Let's discuss your project"
         >
           <span className={styles.iconPlaceholder}>
@@ -104,14 +110,17 @@ const Footer = () => {
             DISCUSS
           </span>
         </button>
+        {/* кнопка копіювання email */}
         <button className={styles.emailButton} onClick={handleCopy}>
           <CopyIcon />
           {copied ? "Copied!" : "team@unknown.marketing"}
         </button>
         <p className={styles.rights}>©2024 UM. All rights reserved.</p>
       </div>
+      {/* права частина футера */}
       <div className={styles.right}>
         <div className={styles.rightTop}>
+          {/* меню футера */}
           <nav className={styles.menu}>
             <p>MENU</p>
             <ul>
@@ -132,6 +141,7 @@ const Footer = () => {
               </li>
             </ul>
           </nav>
+          {/* соціальні мережі */}
           <div className={styles.social}>
             <p>OUR SOCIAL:</p>
             <ul>
@@ -156,10 +166,12 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+        {/* юридична інформація */}
         <div className={styles.legal}>
           <a href="#">Term of use</a>
           <a href="#">Privacy Policy</a>
         </div>
+        {/* мобільна юридична інформація */}
         <div className={styles.mobileLegal}>
           <div className={styles.mobileLegalLinks}>
             <a href="#">Term of use</a>
@@ -168,6 +180,7 @@ const Footer = () => {
           <p>©2024 UM. All rights reserved.</p>
         </div>
       </div>
+      {/* модальне вікно */}
       <ModalBookCall
         isOpen={modalOpen}
         onClose={closeModal}

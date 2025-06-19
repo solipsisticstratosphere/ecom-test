@@ -19,7 +19,7 @@
   height: 80px;
 
   margin: 0 auto;
-  max-width: 1280px; /* чтобы не растягивался на всю ширину ультра-широких экранов */
+  max-width: 1280px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -118,7 +118,7 @@
 .closeButton {
   position: absolute;
   top: 24px;
-  right: 24px;
+  right: 104px;
   background: transparent;
   border: none;
   cursor: pointer;

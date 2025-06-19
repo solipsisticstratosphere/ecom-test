@@ -12,6 +12,7 @@ import SettingsIcon from "../../assets/icons/Settings.svg?react";
 import SearchIcon from "../../assets/icons/Search.svg?react";
 import TrendingIcon from "../../assets/icons/Trending.svg?react";
 
+// дані для кроків
 const stepsData = [
   {
     week: 1,
@@ -20,6 +21,7 @@ const stepsData = [
     ellipseClass: styles.ellipse1,
     iconMarginBottom: "175px",
     mobileIconMarginBottom: "60px",
+    mobileGlowClass: styles.mobileGlow1,
     tasks: ["Briefing", "Debriefing", "Account access", "Project system setup"],
   },
   {
@@ -29,6 +31,7 @@ const stepsData = [
     ellipseClass: styles.ellipse2,
     iconMarginBottom: "30px",
     mobileIconMarginBottom: "10px",
+    mobileGlowClass: styles.mobileGlow2,
     tasks: [
       "Unit economics",
       "Website audit",
@@ -44,6 +47,7 @@ const stepsData = [
     ellipseClass: styles.ellipse3,
     iconMarginBottom: "90px",
     mobileIconMarginBottom: "60px",
+    mobileGlowClass: styles.mobileGlow3,
     tasks: [
       "Tracking setup",
       "Merchant setup",
@@ -58,15 +62,19 @@ const stepsData = [
     ellipseClass: styles.ellipse4,
     iconMarginBottom: "150px",
     mobileIconMarginBottom: "110px",
+    mobileGlowClass: styles.mobileGlow4,
     tasks: ["Reporting setup", "Actionable insights", "Results optimization"],
   },
 ];
 
+// головний компонент кроків
 const Steps = () => {
   let globalIndex = 1;
 
   return (
+    // секція кроків
     <div className={styles.stepsSection}>
+      {/* десктопна версія кроків */}
       <div className={`${styles.container} ${styles.desktopContainer}`}>
         {stepsData.map((step) => (
           <div className={styles.column} key={step.week}>
@@ -87,7 +95,6 @@ const Steps = () => {
                   className={`${styles.ellipse} ${step.ellipseClass}`}
                 />
               </div>
-
               <ul className={styles.taskList}>
                 {step.tasks.map((task, i) => (
                   <li className={styles.taskItem} key={i}>
@@ -100,13 +107,13 @@ const Steps = () => {
           </div>
         ))}
       </div>
-
+      {/* мобільна версія кроків */}
       <div className={`${styles.container} ${styles.mobileContainer}`}>
         <Swiper
           modules={[Pagination]}
           spaceBetween={60}
           slidesPerView={"auto"}
-          centeredSlides={true}
+          centeredSlides={false}
           pagination={{
             clickable: true,
             bulletClass: styles.swiperBullet,
@@ -115,11 +122,11 @@ const Steps = () => {
           className={styles.swiper}
         >
           {stepsData.map((step) => {
+            // підрахунок глобального індексу для мобільної версії
             let stepGlobalIndex = 1;
             for (let i = 0; i < step.week - 1; i++) {
               stepGlobalIndex += stepsData[i].tasks.length;
             }
-
             return (
               <SwiperSlide key={step.week} className={styles.swiperSlideMobile}>
                 <div className={styles.mobileColumn}>
@@ -136,11 +143,13 @@ const Steps = () => {
                       style={{ marginBottom: step.mobileIconMarginBottom }}
                     >
                       <div className={styles.iconWrapper}>{step.icon}</div>
+                      <div
+                        className={`${styles.glow} ${step.mobileGlowClass}`}
+                      />
                       <DottedEllipse
                         className={`${styles.ellipse} ${step.ellipseClass}`}
                       />
                     </div>
-
                     <ul className={styles.taskList}>
                       {step.tasks.map((task, i) => (
                         <li className={styles.taskItem} key={i}>

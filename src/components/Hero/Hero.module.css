@@ -5,7 +5,7 @@
   padding-top: 70px;
   padding-bottom: 20px;
   gap: 12px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   min-height: 690px;
   height: auto;
 }
@@ -31,7 +31,7 @@
   padding-right: clamp(20px, 6vw, 93px);
   padding-top: 1px;
   padding-bottom: 35px;
-  /* padding-bottom: 55px; */
+
   min-width: 0;
   position: relative;
   margin-bottom: 10px;
@@ -191,6 +191,7 @@
 
 @media (max-width: 1024px) {
   .hero {
+    flex-wrap: wrap;
     flex-direction: column;
     height: auto;
     gap: 32px;

@@ -2,12 +2,15 @@ import React from "react";
 import styles from "./Mission.module.css";
 import TriangleIcon from "../../assets/icons/Triangle.svg?react";
 
+// секція місії
 const MissionSection = () => {
   return (
     <section className={styles.missionSection}>
       <div className={styles.missionContainer}>
+        {/* кнопка місії для мобільних */}
         <p className={styles.missionButtonMobile}>• OUR MISSION</p>
         <div className={styles.missionContent}>
+          {/* автор місії */}
           <div className={styles.missionAuthor}>
             <p className={styles.missionButton}>• OUR MISSION</p>
             <div className={styles.photoWrapper}>
@@ -23,6 +26,7 @@ const MissionSection = () => {
             <h4 className={styles.missionAuthorName}>Victor Terekhovskyi</h4>
             <p className={styles.missionAuthorPosition}>Co-founder & COO</p>
           </div>
+          {/* текст місії */}
           <div className={styles.missionText}>
             <p className={styles.headline}>
               <span className={styles.headlineSpan}>

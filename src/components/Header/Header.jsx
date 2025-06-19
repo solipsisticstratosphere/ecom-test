@@ -6,18 +6,24 @@ import IconPen from "../../assets/icons/Pen.svg?react";
 import BurgerIcon from "../../assets/icons/BurgerMenu.svg?react";
 import CloseIcon from "../../assets/icons/CloseIcon.svg?react";
 import ModalBookCall from "../ModalBookCall/ModalBookCall";
+// eslint-disable-next-line no-unused-vars
+import { motion, AnimatePresence } from "framer-motion";
+
+// компонент хедер
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const drawerRef = useRef(null);
 
+  // ефект для зміни стилю при скролі
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // ефект для закриття drawer при кліку поза ним
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (drawerRef.current && !drawerRef.current.contains(event.target)) {
@@ -27,6 +33,7 @@ const Header = () => {
 
     if (drawerOpen) {
       document.addEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "hidden";
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
     }
@@ -39,36 +46,22 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [drawerOpen]);
 
+  // відкриття/закриття drawer
   const toggleDrawer = () => setDrawerOpen((prev) => !prev);
+  // відкриття модального вікна
   const openModal = () => setModalOpen(true);
+  // закриття модального вікна
   const closeModal = () => setModalOpen(false);
-  const drawer = (
-    <div ref={drawerRef} className={styles.drawer}>
-      <button
-        className={styles.closeButton}
-        onClick={() => setDrawerOpen(false)}
-      >
-        <CloseIcon />
-      </button>
-      <a href="#" onClick={() => setDrawerOpen(false)}>
-        Services
-      </a>
-      <a href="#" onClick={() => setDrawerOpen(false)}>
-        Our Approach
-      </a>
-      <a href="#" onClick={() => setDrawerOpen(false)}>
-        Projects
-      </a>
-      <a href="#" onClick={() => setDrawerOpen(false)}>
-        About Us
-      </a>
-      <a href="#" onClick={() => setDrawerOpen(false)}>
-        Blog
-      </a>
-    </div>
-  );
+
+  const drawerVariants = {
+    hidden: { x: "100%" },
+    visible: { x: 0 },
+    exit: { x: "100%" },
+  };
+
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
+      {/* логотип і навігація */}
       <div className={styles.logoNavigation}>
         <div className={styles.logo}>
           <Logo />
@@ -81,6 +74,7 @@ const Header = () => {
           <a href="#">Blog</a>
         </nav>
       </div>
+      {/* мобільні кнопки */}
       <div className={styles.mobileControls}>
         <button className={styles.ctaDesktop} onClick={openModal}>
           LET’S TALK
@@ -97,8 +91,46 @@ const Header = () => {
           <BurgerIcon />
         </button>
       </div>
-
-      {drawerOpen && ReactDOM.createPortal(drawer, document.body)}
+      {/* drawer меню */}
+      {ReactDOM.createPortal(
+        <AnimatePresence>
+          {drawerOpen && (
+            <motion.div
+              ref={drawerRef}
+              className={styles.drawer}
+              variants={drawerVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <button
+                className={styles.closeButton}
+                onClick={() => setDrawerOpen(false)}
+              >
+                <CloseIcon />
+              </button>
+              <a href="#" onClick={() => setDrawerOpen(false)}>
+                Services
+              </a>
+              <a href="#" onClick={() => setDrawerOpen(false)}>
+                Our Approach
+              </a>
+              <a href="#" onClick={() => setDrawerOpen(false)}>
+                Projects
+              </a>
+              <a href="#" onClick={() => setDrawerOpen(false)}>
+                About Us
+              </a>
+              <a href="#" onClick={() => setDrawerOpen(false)}>
+                Blog
+              </a>
+            </motion.div>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
+      {/* модальне вікно */}
       <ModalBookCall isOpen={modalOpen} onClose={closeModal} />
     </header>
   );

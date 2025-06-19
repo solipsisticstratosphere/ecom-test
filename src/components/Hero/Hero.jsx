@@ -2,15 +2,20 @@ import React from "react";
 import styles from "./Hero.module.css";
 import CalendarIcon from "../../assets/icons/Calendar.svg?react";
 
+// головний компонент Hero
 const Hero = () => {
   return (
+    // секція Hero
     <section className={styles.hero}>
+      {/* ліва частина Hero */}
       <div className={styles.left}>
+        {/* блок з тегами та заголовком */}
         <div className={styles.taggedBox}>
           <h1>
             BUILDING <span>DATA-DRIVEN</span>
             <br /> E-COMMERCE <br /> ON SHOPIFY
           </h1>
+          {/* описова частина */}
           <div className={styles.descriptionBox}>
             <p className={styles.description}>
               We help businesses grow and scale
@@ -30,6 +35,7 @@ const Hero = () => {
                 <span className={styles.tagSpan}>strategy</span>
               </span>
             </p>
+            {/* блок CTA */}
             <div className={styles.ctaBox}>
               <button className={styles.cta}>
                 FREE STRATEGY CALL
@@ -45,8 +51,9 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
+      {/* права частина Hero */}
       <div className={styles.right}>
+        {/* зображення Hero */}
         <div className={styles.imagePlaceholder}>
           <img src="/src/assets/vintage-clothing.png" alt="Hero" />
         </div>

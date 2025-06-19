@@ -2,20 +2,24 @@ import React from "react";
 import styles from "./WorkWay.module.css";
 import PlayIcon from "../../assets/icons/Triangle.svg?react";
 
+// секція "Як ми працюємо"
 const WorkWay = () => {
   return (
     <section className={styles.workSection}>
       <div className={styles.container}>
+        {/* опис секції */}
         <p className={styles.description}>
           We grow Shopify stores from <strong>4 to 6 figures</strong> in revenue
           using creative strategies in performance marketing.
         </p>
 
+        {/* заголовок та відео */}
         <div className={styles.headline}>
           <div className={styles.topRow}>
             <h2 className={styles.serif}>The</h2>
             <h2 className={styles.sansSerif}>way</h2>
 
+            {/* блок з фото та кнопкою відтворення */}
             <div className={styles.videoWrapper}>
               <img
                 src="/src/assets/worker.png"
