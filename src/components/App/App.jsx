@@ -7,6 +7,7 @@ import Badges from "../Badges/Badges";
 import WorkWay from "../WorkWay/WorkWay";
 import Steps from "../Steps/Steps";
 import Discuss from "../Discuss/Discuss";
+import Footer from "../Footer/Footer";
 function App() {
   return (
     <div className={styles.appContainer}>
@@ -18,6 +19,7 @@ function App() {
       <WorkWay />
       <Steps />
       <Discuss />
+      <Footer />
     </div>
   );
 }

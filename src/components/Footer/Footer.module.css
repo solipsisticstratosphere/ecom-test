@@ -1,0 +1,237 @@
+.wrapper {
+  font-family: var(--second-family);
+  display: flex;
+  background: url("/path-to-background.jpg") no-repeat center/cover;
+  color: white;
+  width: 100%;
+  padding-top: 60px;
+  padding-bottom: 120px;
+  overflow: hidden;
+  position: relative;
+  perspective: 1000px;
+}
+
+.left {
+  flex: 1;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.title {
+  margin-top: 0;
+
+  font-weight: 800;
+  font-size: clamp(54px, 8vw, 104px);
+  line-height: 96%;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 56px;
+}
+
+.discussCircle {
+  background: radial-gradient(circle at center, #33d39b, #17a78d);
+  border-radius: 50%;
+  width: 238px;
+  height: 238px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 30%;
+  left: 30%;
+
+  cursor: pointer;
+  will-change: transform;
+  border: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.discussCircle:hover {
+  transform: scale(1.05);
+}
+
+.iconPlaceholder {
+  margin-bottom: 16px;
+  border-radius: 100%;
+  background-color: black;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon {
+  width: 23px;
+  height: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.discussText {
+  font-family: var(--second-family);
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 130%;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #070707;
+}
+
+.emailButton {
+  width: 301px;
+  height: 53px;
+  padding: 16px;
+  border: 2px solid white;
+  border-radius: 999px;
+  background: transparent;
+  color: white;
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.emailButton:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.rights {
+  margin-top: 120px;
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  opacity: 0.6;
+  margin-bottom: 0;
+}
+
+.right {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+.rightTop {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.menu p {
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 133%;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0.3;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+.menu li {
+  margin-bottom: 20px;
+}
+.menu a {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.menu a:hover {
+  opacity: 1;
+  border-bottom: 1px solid white;
+}
+.social p {
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 133%;
+  text-transform: uppercase;
+  color: #fff;
+  opacity: 0.3;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.social ul {
+  list-style: none;
+  padding: 0;
+}
+.social li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.socialIconWrapper {
+  background: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.socialIconWrapper:hover {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3), 0 6px 30px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.legal {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin-top: 2rem;
+  gap: 146px;
+  flex-wrap: wrap;
+}
+.legal a {
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.6;
+}
+.legal a:hover {
+  opacity: 0.8;
+}
