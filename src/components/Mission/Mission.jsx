@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Mission.module.css";
 import TriangleIcon from "../../assets/icons/Triangle.svg?react";
+import Victor from "../../assets/victor.png";
 
 // секція місії
 const MissionSection = () => {
@@ -15,7 +16,7 @@ const MissionSection = () => {
             <p className={styles.missionButton}>• OUR MISSION</p>
             <div className={styles.photoWrapper}>
               <img
-                src="/src/assets/victor.png"
+                src={Victor}
                 alt="Showreel Preview"
                 className={styles.authorPhoto}
               />

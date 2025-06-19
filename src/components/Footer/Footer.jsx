@@ -6,6 +6,7 @@ import TelegramIcon from "../../assets/icons/Telegram.svg?react";
 import LinkedinIcon from "../../assets/icons/Linkedin.svg?react";
 import CopyIcon from "../../assets/icons/Copy.svg?react";
 import ModalBookCall from "../ModalBookCall/ModalBookCall";
+import FooterGlow from "../../assets/footer_glow.png";
 
 // компонент футера
 const Footer = () => {
@@ -73,6 +74,8 @@ const Footer = () => {
 
   return (
     <footer className={styles.wrapper} ref={wrapperRef}>
+      <img src={FooterGlow} alt="Footer Glow" className={styles.glow} />
+
       {/* ліва частина футера */}
       <div className={styles.left}>
         <h1 className={styles.title}>

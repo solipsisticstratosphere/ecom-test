@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./WorkWay.module.css";
 import PlayIcon from "../../assets/icons/Triangle.svg?react";
+import Worker from "../../assets/worker.png";
 
 // секція "Як ми працюємо"
 const WorkWay = () => {
@@ -21,11 +22,7 @@ const WorkWay = () => {
 
             {/* блок з фото та кнопкою відтворення */}
             <div className={styles.videoWrapper}>
-              <img
-                src="/src/assets/worker.png"
-                alt="Founder"
-                className={styles.photo}
-              />
+              <img src={Worker} alt="Founder" className={styles.photo} />
               <button className={styles.playButton} aria-label="Play video">
                 <PlayIcon className={styles.playIconSvg} />
               </button>

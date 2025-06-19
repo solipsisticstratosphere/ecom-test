@@ -10,17 +10,19 @@ import Discuss from "../Discuss/Discuss";
 import Footer from "../Footer/Footer";
 function App() {
   return (
-    <div className={styles.appContainer}>
-      <Header />
-      <Hero />
-      <ShowReel />
-      <MissionSection />
-      <Badges />
-      <WorkWay />
-      <Steps />
-      <Discuss />
+    <>
+      <div className={styles.appContainer}>
+        <Header />
+        <Hero />
+        <ShowReel />
+        <MissionSection />
+        <Badges />
+        <WorkWay />
+        <Steps />
+        <Discuss />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

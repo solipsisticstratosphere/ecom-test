@@ -1,16 +1,31 @@
 .wrapper {
   font-family: var(--second-family);
   display: flex;
-  background: url("/path-to-background.jpg") no-repeat center/cover;
+  padding-left: clamp(16px, 3vw, 50px);
+  padding-right: clamp(16px, 3vw, 50px);
   color: white;
-  width: 100%;
+
   padding-top: 60px;
   padding-bottom: 80px;
   overflow: hidden;
   position: relative;
   perspective: 1000px;
 }
+.glow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+  transform: translateX(calc(-1 * var(--app-padding-left, 32px)));
+}
 
+.glowMobile {
+  display: none;
+}
 .left {
   flex: 1;
 
@@ -244,6 +259,7 @@
     align-items: flex-start;
     flex-direction: column;
   }
+
   .title {
     text-align: start;
   }

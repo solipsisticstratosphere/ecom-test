@@ -1,13 +1,10 @@
 import styles from "./ShowReel.module.css";
+import Car from "../../assets/car.png";
 
 const ShowReel = () => {
   return (
     <div className={styles.showreelWrapper}>
-      <img
-        src="/src/assets/car.png"
-        alt="Showreel Preview"
-        className={styles.showreelImage}
-      />
+      <img src={Car} alt="Showreel Preview" className={styles.showreelImage} />
       <button className={styles.showreelButton}>
         <em>Play</em> Showreel <span>▶</span>
       </button>

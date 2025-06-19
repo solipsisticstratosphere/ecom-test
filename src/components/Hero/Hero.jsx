@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Hero.module.css";
 import CalendarIcon from "../../assets/icons/Calendar.svg?react";
-
+import VintageClothing from "../../assets/vintage-clothing.png";
 // головний компонент Hero
 const Hero = () => {
   return (
@@ -55,7 +55,7 @@ const Hero = () => {
       <div className={styles.right}>
         {/* зображення Hero */}
         <div className={styles.imagePlaceholder}>
-          <img src="/src/assets/vintage-clothing.png" alt="Hero" />
+          <img src={VintageClothing} alt="Hero" />
         </div>
       </div>
     </section>
