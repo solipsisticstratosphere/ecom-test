@@ -5,9 +5,11 @@ import Logo from "./Logo.svg?react";
 import IconPen from "./Pen.svg?react";
 import BurgerIcon from "./BurgerMenu.svg?react";
 import CloseIcon from "./CloseIcon.svg?react";
+import ModalBookCall from "../ModalBookCall/ModalBookCall";
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const drawerRef = useRef(null);
 
   useEffect(() => {
@@ -38,7 +40,8 @@ const Header = () => {
   }, [drawerOpen]);
 
   const toggleDrawer = () => setDrawerOpen((prev) => !prev);
-
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
   const drawer = (
     <div ref={drawerRef} className={styles.drawer}>
       <button
@@ -79,13 +82,13 @@ const Header = () => {
         </nav>
       </div>
       <div className={styles.mobileControls}>
-        <button className={styles.ctaDesktop}>
+        <button className={styles.ctaDesktop} onClick={openModal}>
           LET’S TALK
           <span className={styles.icon}>
             <IconPen />
           </span>
         </button>
-        <button className={styles.ctaMobile}>
+        <button className={styles.ctaMobile} onClick={openModal}>
           <span className={styles.mobileIcon}>
             <IconPen />
           </span>
@@ -96,6 +99,7 @@ const Header = () => {
       </div>
 
       {drawerOpen && ReactDOM.createPortal(drawer, document.body)}
+      <ModalBookCall isOpen={modalOpen} onClose={closeModal} />
     </header>
   );
 };

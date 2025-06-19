@@ -108,9 +108,9 @@ const Discuss = () => {
           <div className={styles.testimonialBox}>
             <div className={styles.folderTab}>
               <Up />
-              <span className={styles.clientsSay}>
-                <span>Our</span> clients say
-              </span>
+              <h4 className={styles.clientsSay}>
+                <span className={styles.clientsSaySpan}>Our</span> clients say
+              </h4>
             </div>
             <div className={styles.testimonialContent}>
               <div className={styles.rating}>

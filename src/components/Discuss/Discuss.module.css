@@ -111,7 +111,9 @@ textarea::placeholder {
   color: #0c8;
   text-decoration: underline;
 }
-
+.privacy a:hover {
+  opacity: 0.5;
+}
 .submitBtn {
   background: linear-gradient(58deg, #0034ed 0%, #04b8c4 49%, #4bfa8a 100%);
   background-size: 150% auto;
@@ -171,7 +173,17 @@ textarea::placeholder {
   display: flex;
   align-items: center;
 }
+.testimonialContent::before {
+  content: "";
+  position: absolute;
+  top: 130px;
+  left: 28px;
+  width: 85%;
+  height: 2px;
+  background: #161616;
 
+  opacity: 0.15;
+}
 .clientsSay {
   font-weight: 400;
   font-size: 36px;
@@ -181,7 +193,11 @@ textarea::placeholder {
   font-family: var(--second-family);
   font-weight: 700;
 }
-
+.clientsSaySpan {
+  font-family: "Libre Baskerville", sans-serif;
+  font-style: italic;
+  font-weight: 400;
+}
 .testimonialContent {
   padding-top: 60px;
 }

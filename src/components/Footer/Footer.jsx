@@ -62,7 +62,7 @@ const Footer = () => {
   }, [isHovered]);
 
   return (
-    <section className={styles.wrapper} ref={wrapperRef}>
+    <footer className={styles.wrapper} ref={wrapperRef}>
       <div className={styles.left}>
         <h1 className={styles.title}>
           LET'S
@@ -156,8 +156,15 @@ const Footer = () => {
           <a href="#">Term of use</a>
           <a href="#">Privacy Policy</a>
         </div>
+        <div className={styles.mobileLegal}>
+          <div className={styles.mobileLegalLinks}>
+            <a href="#">Term of use</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+          <p>©2024 UM. All rights reserved.</p>
+        </div>
       </div>
-    </section>
+    </footer>
   );
 };
 

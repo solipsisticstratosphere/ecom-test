@@ -5,7 +5,7 @@
   color: white;
   width: 100%;
   padding-top: 60px;
-  padding-bottom: 120px;
+  padding-bottom: 80px;
   overflow: hidden;
   position: relative;
   perspective: 1000px;
@@ -80,7 +80,7 @@
 .discussText {
   font-family: var(--second-family);
   font-weight: 700;
-  font-size: 21px;
+  font-size: clamp(12px, 2vw, 21px);
   line-height: 130%;
   letter-spacing: -0.03em;
   text-transform: uppercase;
@@ -98,7 +98,7 @@
   color: white;
   font-family: var(--second-family);
   font-weight: 600;
-  font-size: 16px;
+  font-size: clamp(12px, 1.5vw, 16px);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -234,4 +234,100 @@
 }
 .legal a:hover {
   opacity: 0.8;
+}
+.mobileLegal {
+  display: none;
+}
+@media (max-width: 1024px) {
+  .wrapper {
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .title {
+    text-align: start;
+  }
+  .left {
+    order: 1;
+    align-items: flex-start;
+    text-align: center;
+  }
+
+  .discussCircle {
+    width: 186px;
+    height: 186px;
+    position: static;
+    margin-bottom: 40px;
+  }
+
+  .emailButton {
+    margin-bottom: 40px;
+  }
+
+  .right {
+    align-items: flex-start;
+    order: 2;
+    width: 100%;
+  }
+
+  .rightTop {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .menu p {
+    font-size: 16px;
+  }
+  .menu a {
+    font-size: 18px;
+  }
+  .social p {
+    margin-top: 36px;
+    font-size: 16px;
+  }
+  .social li {
+    font-size: 24px;
+  }
+  .socialIconWrapper {
+    width: 56px;
+    height: 56px;
+  }
+  .socialIcon {
+    width: 18px;
+    height: 18px;
+  }
+  .legal {
+    display: none;
+  }
+  .rights {
+    display: none;
+  }
+  .mobileLegalLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .mobileLegal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 56px;
+    margin-top: 40px;
+    font-size: 14px;
+    opacity: 0.6;
+    text-align: center;
+  }
+
+  .mobileLegal a {
+    font-weight: 400;
+    font-size: 12px;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  .mobileLegal p {
+    font-size: 14px;
+    margin: 0;
+  }
 }
