@@ -17,6 +17,12 @@ const ModalBookCall = ({ isOpen, onClose }) => {
   const [selectedIndustry, setSelectedIndustry] = useState("");
   const [email, setEmail] = useState("");
 
+  const [touched, setTouched] = useState({
+    industry: false,
+    email: false,
+  });
+  const [submitted, setSubmitted] = useState(false);
+
   useEffect(() => {
     // закриття по кліку поза модалкою
     const handleClickOutside = (event) => {
@@ -38,6 +44,10 @@ const ModalBookCall = ({ isOpen, onClose }) => {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
+      setSelectedIndustry("");
+      setEmail("");
+      setTouched({ industry: false, email: false });
+      setSubmitted(false);
     }
 
     return () => {
@@ -52,17 +62,46 @@ const ModalBookCall = ({ isOpen, onClose }) => {
     setSelectedIndustry(industry);
   };
 
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleEmailBlur = () => {
+    setTouched((prev) => ({ ...prev, email: true }));
+  };
+
   // відправка форми
+  const getError = (field) => {
+    if (!submitted && !touched[field]) return false;
+    if (field === "email") return !email.includes("@");
+    if (field === "industry") return !selectedIndustry;
+    return false;
+  };
+
+  const isFormValid = () => {
+    return selectedIndustry && email.includes("@");
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    setSubmitted(true);
+
+    if (!isFormValid()) {
+      return;
+    }
+
     const formData = {
       industry: selectedIndustry,
       email: email,
       timestamp: new Date().toISOString(),
     };
     console.log("Form submitted:", formData);
+
+    // сброс формы и закрытие модалки
     setSelectedIndustry("");
     setEmail("");
+    setTouched({ industry: false, email: false });
+    setSubmitted(false);
     onClose();
   };
 
@@ -130,7 +169,7 @@ const ModalBookCall = ({ isOpen, onClose }) => {
                           type="button"
                           className={`${styles.tag} ${
                             selectedIndustry === industry ? styles.selected : ""
-                          }`}
+                          } ${getError("industry") ? styles.invalid : ""}`}
                           onClick={() => handleIndustrySelect(industry)}
                         >
                           {industry}
@@ -145,9 +184,12 @@ const ModalBookCall = ({ isOpen, onClose }) => {
                     <input
                       type="email"
                       placeholder="Your E-mail"
-                      className={styles.emailInput}
+                      className={`${styles.emailInput} ${
+                        getError("email") ? styles.invalid : ""
+                      }`}
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={handleEmailChange}
+                      onBlur={handleEmailBlur}
                       required
                     />
                   </div>
@@ -198,9 +240,10 @@ const ModalBookCall = ({ isOpen, onClose }) => {
               <div className={styles.testimonialBox}>
                 <div className={styles.folderTab}>
                   <Up />
-                  <span className={styles.clientsSay}>
-                    <span>Our</span> clients say
-                  </span>
+                  <h4 className={styles.clientsSay}>
+                    <span className={styles.clientsSaySpan}>Our</span> clients
+                    say
+                  </h4>
                 </div>
                 <div className={styles.testimonialContent}>
                   <div className={styles.rating}>

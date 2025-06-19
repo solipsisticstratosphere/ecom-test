@@ -11,16 +11,16 @@ import Footer from "../Footer/Footer";
 function App() {
   return (
     <>
+      <Header />
       <div className={styles.appContainer}>
-        <Header />
         <Hero />
         <ShowReel />
         <MissionSection />
         <Badges />
-        <WorkWay />
-        <Steps />
-        <Discuss />
       </div>
+      <WorkWay />
+      <Steps />
+      <Discuss />
       <Footer />
     </>
   );

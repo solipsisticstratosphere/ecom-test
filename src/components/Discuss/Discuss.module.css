@@ -5,7 +5,7 @@
   padding-bottom: clamp(60px, 10vw, 86px);
   margin-left: calc(-1 * (100vw - 100%) / 2);
   margin-right: calc(-1 * (100vw - 100%) / 2);
-  width: 99vw;
+  width: 100%;
   overflow: hidden;
 }
 .wrapper {

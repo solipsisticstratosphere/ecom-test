@@ -13,38 +13,47 @@ import { motion, AnimatePresence } from "framer-motion";
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [drawerVisible, setDrawerVisible] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const drawerRef = useRef(null);
 
-  // ефект для зміни стилю при скролі
   useEffect(() => {
+    // слухаємо скрол для зміни стилю хедера
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // ефект для закриття drawer при кліку поза ним
   useEffect(() => {
+    // керуємо видимістю drawer та блокуванням скролу сторінки
+    if (drawerOpen) {
+      setDrawerVisible(true);
+      document.body.style.overflow = "hidden";
+    } else {
+      const timeout = setTimeout(() => {
+        setDrawerVisible(false);
+        document.body.style.overflow = "";
+      }, 600);
+      return () => clearTimeout(timeout);
+    }
+  }, [drawerOpen]);
+
+  useEffect(() => {
+    // закриваємо drawer при кліку поза ним
     const handleClickOutside = (event) => {
       if (drawerRef.current && !drawerRef.current.contains(event.target)) {
         setDrawerOpen(false);
       }
     };
 
-    if (drawerOpen) {
+    if (drawerVisible) {
       document.addEventListener("mousedown", handleClickOutside);
-      document.body.style.overflow = "hidden";
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
     }
-    if (drawerOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
 
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [drawerOpen]);
+  }, [drawerVisible]);
 
   // відкриття/закриття drawer
   const toggleDrawer = () => setDrawerOpen((prev) => !prev);
@@ -94,13 +103,14 @@ const Header = () => {
       {/* drawer меню */}
       {ReactDOM.createPortal(
         <AnimatePresence>
-          {drawerOpen && (
+          {drawerVisible && (
             <motion.div
+              key="drawer"
               ref={drawerRef}
               className={styles.drawer}
               variants={drawerVariants}
               initial="hidden"
-              animate="visible"
+              animate={drawerOpen ? "visible" : "exit"}
               exit="exit"
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >

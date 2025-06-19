@@ -3,7 +3,10 @@
   justify-content: space-between;
   align-items: center;
   background-color: var(--color-background);
-  padding: 1rem 0rem;
+  padding-left: clamp(16px, 3vw, 50px);
+  padding-right: clamp(16px, 3vw, 50px);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -18,7 +21,6 @@
 
   height: 80px;
 
-  margin: 0 auto;
   max-width: 1280px;
   box-sizing: border-box;
   display: flex;

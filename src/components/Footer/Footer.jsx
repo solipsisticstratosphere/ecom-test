@@ -29,11 +29,19 @@ const Footer = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  // анімація кола при русі миші
+  const isHoveredRef = useRef(false);
+  // Fix: Use refs for coordinates to maintain reference stability
+  const targetCoordsRef = useRef({ x: 0, y: 0 });
+  const currentCoordsRef = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    isHoveredRef.current = isHovered;
+  }, [isHovered]);
+
   useEffect(() => {
     let animationFrameId;
-    let targetCoords = { x: 0, y: 0 };
-    let currentCoords = { x: 0, y: 0 };
+    let lastUpdateTime = 0;
+    const updateInterval = 16; // ~60fps
 
     const handleMouseMove = (e) => {
       if (wrapperRef.current) {
@@ -44,33 +52,60 @@ const Footer = () => {
         const relativeX = (e.clientX - centerX) / rect.width;
         const relativeY = (e.clientY - centerY) / rect.height;
 
-        const intensity = isHovered ? 60 : 40;
-        targetCoords = {
+        const intensity = isHoveredRef.current ? 60 : 40;
+        targetCoordsRef.current = {
           x: relativeX * intensity * 1.2,
           y: relativeY * intensity * 0.8,
         };
       }
     };
 
-    const animate = () => {
-      const lerp = (start, end, factor) => start + (end - start) * factor;
-      const lerpFactor = isHovered ? 0.15 : 0.08;
+    const animate = (currentTime) => {
+      // Throttle updates to prevent excessive re-renders
+      if (currentTime - lastUpdateTime >= updateInterval) {
+        const lerp = (start, end, factor) => start + (end - start) * factor;
+        const lerpFactor = isHoveredRef.current ? 0.15 : 0.08;
 
-      currentCoords.x = lerp(currentCoords.x, targetCoords.x, lerpFactor);
-      currentCoords.y = lerp(currentCoords.y, targetCoords.y, lerpFactor);
+        const newX = lerp(
+          currentCoordsRef.current.x,
+          targetCoordsRef.current.x,
+          lerpFactor
+        );
+        const newY = lerp(
+          currentCoordsRef.current.y,
+          targetCoordsRef.current.y,
+          lerpFactor
+        );
 
-      setCoords({ ...currentCoords });
+        // Only update if there's a meaningful change
+        const threshold = 0.1;
+        if (
+          Math.abs(newX - currentCoordsRef.current.x) > threshold ||
+          Math.abs(newY - currentCoordsRef.current.y) > threshold
+        ) {
+          currentCoordsRef.current.x = newX;
+          currentCoordsRef.current.y = newY;
+
+          setCoords({
+            x: newX,
+            y: newY,
+          });
+        }
+
+        lastUpdateTime = currentTime;
+      }
+
       animationFrameId = requestAnimationFrame(animate);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    animate();
+    animationFrameId = requestAnimationFrame(animate);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [isHovered]);
+  }, []); // Empty dependency array - effect runs only once
 
   return (
     <footer className={styles.wrapper} ref={wrapperRef}>

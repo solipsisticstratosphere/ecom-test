@@ -132,7 +132,11 @@
   display: flex;
   flex-direction: column;
 }
-
+.clientsSaySpan {
+  font-family: "Libre Baskerville", sans-serif;
+  font-style: italic;
+  font-weight: 400;
+}
 .emailInput {
   width: 487px;
   box-sizing: border-box;
@@ -378,7 +382,9 @@
   align-items: center;
   margin-top: 94px;
 }
-
+.invalid {
+  border-bottom: 1px solid red !important;
+}
 @media (max-width: 1024px) {
   .modal {
     background-image: url("/src/assets/frame3_mobile.png");
