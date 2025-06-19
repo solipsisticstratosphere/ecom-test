@@ -1,12 +1,76 @@
-# React + Vite
+# E-commerce на Shopify
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Про проект
 
-Currently, two official plugins are available:
+Це сучасний веб-сайт маркетингової агенції, що спеціалізується на розвитку e-commerce проектів на платформі Shopify. Проект розроблено з використанням React та Vite, з фокусом на сучасний дизайн та оптимальний користувацький досвід.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Основні особливості проекту:
 
-## Expanding the ESLint configuration
+- Адаптивний дизайн для всіх пристроїв
+- Анімації та інтерактивні елементи
+- Модальні вікна для запису на консультацію
+- Детальний опис процесу роботи з клієнтами
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Технології
+
+- React
+- Vite
+- CSS Modules
+- Swiper
+- Framer Motion
+
+## Встановлення та запуск
+
+### Передумови
+
+Для роботи з проектом вам потрібно мати встановлені:
+
+- Node.js (версія 14.0.0 або вище)
+- npm (версія 6.0.0 або вище)
+
+### Кроки для встановлення
+
+1. Клонуйте репозиторій:
+
+```bash
+git clone https://github.com/your-username/ecom-test.git
+cd ecom-test
+```
+
+2. Встановіть залежності:
+
+```bash
+npm install
+```
+
+3. Запустіть проект у режимі розробки:
+
+```bash
+npm run dev
+```
+
+4. Відкрийте у браузері:
+
+```
+http://localhost:5173
+```
+
+### Збірка для продакшену
+
+Для створення оптимізованої версії для продакшену виконайте:
+
+```bash
+npm run build
+```
+
+Після завершення збірки, файли будуть доступні в директорії `dist/`.
+
+## Структура проекту
+
+- `/src/components` - React компоненти
+- `/src/assets` - Зображення та іконки
+- `/public` - Статичні файли
+
+## Розгортання
+
+Проект налаштований для розгортання на Vercel. Після пуш-коміту в головну гілку, Vercel автоматично розгорне нову версію сайту.
