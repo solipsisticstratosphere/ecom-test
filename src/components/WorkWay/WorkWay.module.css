@@ -134,6 +134,14 @@
     font-size: clamp(51px, 12vw, 80px);
   }
 
+  .playIconSvg {
+    width: clamp(14px, 3vw, 20px);
+    height: clamp(14px, 3vw, 20px);
+  }
+  .playButton {
+    width: 56px;
+    height: 56px;
+  }
   .description {
     left: 48%;
     bottom: -49%;
