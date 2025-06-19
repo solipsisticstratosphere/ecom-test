@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useState } from "react";
 import styles from "./Footer.module.css";
-import PencilIcon from "/src/assets/icons/Pen_Footer.svg?react";
-import InstagramIcon from "/src/assets/icons/Instagram.svg?react";
-import TelegramIcon from "/src/assets/icons/Telegram.svg?react";
-import LinkedinIcon from "/src/assets/icons/Linkedin.svg?react";
-import CopyIcon from "/src/assets/icons/Copy.svg?react";
+import PencilIcon from "../../assets/icons/Pen_Footer.svg?react";
+import InstagramIcon from "../../assets/icons/Instagram.svg?react";
+import TelegramIcon from "../../assets/icons/Telegram.svg?react";
+import LinkedinIcon from "../../assets/icons/Linkedin.svg?react";
+import CopyIcon from "../../assets/icons/Copy.svg?react";
 import ModalBookCall from "../ModalBookCall/ModalBookCall";
 
 // компонент футера
