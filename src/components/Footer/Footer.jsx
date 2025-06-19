@@ -5,13 +5,17 @@ import InstagramIcon from "/src/assets/icons/Instagram.svg?react";
 import TelegramIcon from "/src/assets/icons/Telegram.svg?react";
 import LinkedinIcon from "/src/assets/icons/Linkedin.svg?react";
 import CopyIcon from "/src/assets/icons/Copy.svg?react";
-
+import ModalBookCall from "../ModalBookCall/ModalBookCall";
 const Footer = () => {
   const circleRef = useRef(null);
   const wrapperRef = useRef(null);
   const [coords, setCoords] = useState({ x: 0, y: 0 });
   const [copied, setCopied] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
 
   const handleCopy = () => {
     navigator.clipboard.writeText("team@unknown.marketing");
@@ -87,7 +91,7 @@ const Footer = () => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onClick={() => {
-            console.log("Discuss button clicked!");
+            openModal();
           }}
           aria-label="Let's discuss your project"
         >
@@ -164,6 +168,11 @@ const Footer = () => {
           <p>©2024 UM. All rights reserved.</p>
         </div>
       </div>
+      <ModalBookCall
+        isOpen={modalOpen}
+        onClose={closeModal}
+        onSubmit={() => {}}
+      />
     </footer>
   );
 };

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import styles from "./Header.module.css";
-import Logo from "./Logo.svg?react";
-import IconPen from "./Pen.svg?react";
-import BurgerIcon from "./BurgerMenu.svg?react";
-import CloseIcon from "./CloseIcon.svg?react";
+import Logo from "../../assets/icons/Logo.svg?react";
+import IconPen from "../../assets/icons/Pen.svg?react";
+import BurgerIcon from "../../assets/icons/BurgerMenu.svg?react";
+import CloseIcon from "../../assets/icons/CloseIcon.svg?react";
 import ModalBookCall from "../ModalBookCall/ModalBookCall";
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);

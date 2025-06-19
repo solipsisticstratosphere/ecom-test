@@ -12,13 +12,10 @@
   --color-muted: #1c1c1c;
   --color-background: #111;
   --color-overlay: rgba(0, 0, 0, 0.5);
-
-  /* UI states */
-  --color-error: #ff4d4f;
-  --color-success: #52c41a;
-  --color-border: #e0e0e0;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: var(--font-family);
   background-color: var(--color-background);

@@ -5,12 +5,12 @@ import "swiper/css";
 import "swiper/css/pagination";
 import styles from "./Steps.module.css";
 
-import DottedEllipse from "./Elipse.svg?react";
-import PencilIcon from "./Pen.svg?react";
-import TickCalendar from "./TickCalendar.svg?react";
-import SettingsIcon from "./Settings.svg?react";
-import SearchIcon from "./Search.svg?react";
-import TrendingIcon from "./Trending.svg?react";
+import DottedEllipse from "../../assets/icons/Elipse.svg?react";
+import PencilIcon from "../../assets/icons/Pen_Steps.svg?react";
+import TickCalendar from "../../assets/icons/TickCalendar.svg?react";
+import SettingsIcon from "../../assets/icons/Settings.svg?react";
+import SearchIcon from "../../assets/icons/Search.svg?react";
+import TrendingIcon from "../../assets/icons/Trending.svg?react";
 
 const stepsData = [
   {

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styles from "./Discuss.module.css";
-import IconPen from "./Pen.svg?react";
-import Up from "./up.svg?react";
-import Upwork from "./upwork.svg?react";
-import Star from "./star.svg?react";
-import Location from "./location.svg?react";
+import IconPen from "../../assets/icons/Pen_Footer.svg?react";
+import Up from "../../assets/icons/Up.svg?react";
+import Upwork from "../../assets/icons/Upwork.svg?react";
+import Star from "../../assets/icons/Star.svg?react";
+import Location from "../../assets/icons/Location.svg?react";
 
 const Discuss = () => {
   const [touched, setTouched] = useState({});

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./WorkWay.module.css";
-import PlayIcon from "./Triangle.svg?react";
+import PlayIcon from "../../assets/icons/Triangle.svg?react";
 
 const WorkWay = () => {
   return (

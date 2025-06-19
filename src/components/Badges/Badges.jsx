@@ -5,11 +5,11 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import styles from "./Badges.module.css";
 
-import CrownIcon from "./Crown.svg?react";
-import StarsIcon from "./Stars.svg?react";
-import ShopifyIcon from "./Shopify.svg?react";
-import UpIcon from "./Up.svg?react";
-import WreathIcon from "./Wreath.svg?react";
+import CrownIcon from "../../assets/icons/Crown.svg?react";
+import StarsIcon from "../../assets/icons/Stars.svg?react";
+import ShopifyIcon from "../../assets/icons/Shopify.svg?react";
+import UpIcon from "../../assets/icons/Upwork_Icon.svg?react";
+import WreathIcon from "../../assets/icons/Wreath.svg?react";
 
 const BadgesSwiper = () => {
   const badges = [

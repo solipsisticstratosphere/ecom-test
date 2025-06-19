@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Mission.module.css";
-import TriangleIcon from "./Triangle.svg?react";
+import TriangleIcon from "../../assets/icons/Triangle.svg?react";
 
 const MissionSection = () => {
   return (

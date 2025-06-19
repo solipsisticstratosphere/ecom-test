@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Hero.module.css";
-import CalendarIcon from "./Calendar.svg?react";
+import CalendarIcon from "../../assets/icons/Calendar.svg?react";
 
 const Hero = () => {
   return (
